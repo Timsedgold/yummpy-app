@@ -1,0 +1,36 @@
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+
+# Virtual environment directories
+venv/
+ENV/
+env/
+.venv/
+.ENV/
+
+# Environment variable files
+.env
+
+# VS Code settings
+.vscode/
+
+# Pytest cache
+.pytest_cache/
+
+# MyPy cache
+.mypy_cache/
+
+# Coverage reports
+htmlcov/
+*.cover
+*.coverage
+*.cov
+coverage.xml
+
+# Logs
+*.log
+logs/
+
+# Database files
+*.sqlite3

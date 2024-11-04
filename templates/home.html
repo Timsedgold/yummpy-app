@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% block title %} HomePage {% endblock %}
+
+{% block content %}
+<h4 class="centered-heading">Just for you</h4>
+<div class="container">
+  <div class="row">
+    {% for recipe in recipes %}
+      <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 mb-3">
+        <div class="p-2 recipe-card">
+          <img src="{{ recipe.image }}" alt="img" class="img-fluid">
+          <a href="/recipes/{{recipe.id}}/info"><p>{{ recipe.title }}</p></a>
+          {% if recipe.user_id == g.user.id %}
+            <button><a href="/recipes/{{recipe.id}}/edit">Edit</a></button>
+            <a href="/recipes/{{recipe.id}}/delete">Delete</a>
+          {% endif %}
+          <form id="fav-form-{{recipe.id}}" method="post" action="/recipes/{{recipe.id}}/favorites">
+            <button class="btn btn-sm {{ 'btn-primary' if recipe.id in favorite_ids else 'btn-secondary' }} fav-btn" data-recipe-id="{{ recipe.id }}">
+              <i class="fa fa-thumbs-up"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
+
