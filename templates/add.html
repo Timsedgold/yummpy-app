@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="row justify-content-md-center">
+    <div class="col-md-6">
+      <h2 class="text-center my-4">Add New Recipe</h2>
+      <form method="post">
+        {{ form.hidden_tag() }}
+        {% for field in form if field.widget.input_type != 'hidden' and field.name not in ['vegetarian', 'ketogenic', 'vegan'] %}
+          <div class="form-group">
+            <label for="{{ field.id }}">{{ field.label.text }}</label>
+            {{ field(class="form-control") }}
+            {% for err in field.errors %}
+              <small class="form-text text-danger">{{ err }}</small>
+            {% endfor %}
+          </div>
+        {% endfor %}
+        <div class="form-group form-check">
+          {{ form.vegetarian(class="form-check-input") }}
+          <label for="{{ form.vegetarian.id }}" class="form-check-label">Vegetarian</label>
+        </div>
+        <div class="form-group form-check">
+          {{ form.ketogenic(class="form-check-input") }}
+          <label for="{{ form.ketogenic.id }}" class="form-check-label">Ketogenic</label>
+        </div>
+        <div class="form-group form-check">
+          {{ form.vegan(class="form-check-input") }}
+          <label for="{{ form.vegan.id }}" class="form-check-label">Vegan</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
