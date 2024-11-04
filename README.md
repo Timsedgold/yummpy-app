@@ -1,6 +1,7 @@
 # Yummpy
 
 Yummpy is a web application that enables users to explore recipes of interest, powered by the Spoonacular API: [Spoonacular API](https://spoonacular.com/food-api).
+Deployed on Deployed on https://yummpy-app.onrender.com
 
 ## App Features
 - Browse hundreds of recipes across various categories.
